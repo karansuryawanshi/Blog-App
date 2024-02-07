@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../Models/Auth");
-const e = require("express");
 const app = express();
+const { getToken } = require("../utils/helpers");
 
 router.post("/register", async (req, res) => {
   const { firstname, lastname, email, password, username } = req.body;
@@ -17,8 +17,10 @@ router.post("/register", async (req, res) => {
   const userUserData = { firstname, lastname, email, password, username };
   const newUser = await User.create(userUserData);
 
+  const token = await getToken(newUser);
   const userToReturn = {
     ...newUser.toJSON(),
+    token,
   };
   return res.status(200).json(userToReturn);
 });
@@ -37,7 +39,9 @@ router.post("/login", async (req, res) => {
     res.status(403).json({ err: "invalid Password" });
   }
 
-  const userToReturn = { ...user.toJSON() };
+  const token = await getToken(user.email, user);
+
+  const userToReturn = { ...user.toJSON(), token };
   return res.status(200).json(userToReturn);
 });
 

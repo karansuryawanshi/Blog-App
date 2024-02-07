@@ -20,13 +20,13 @@ const Blog = new mongoose.Schema({
   video: {
     type: String,
   },
-  Description: {
+  description: {
     type: String,
     require: true,
   },
-  Date: {
+  date: {
     type: Date,
-    require: true,
+    default: Date.now,
   },
   creater: {
     type: mongoose.Schema.ObjectId,
