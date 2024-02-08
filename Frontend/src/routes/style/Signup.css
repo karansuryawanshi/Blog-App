@@ -34,9 +34,13 @@
 
 .main-page{
     background-color: #100F15;
+
 }
 
 .see-all-tag:hover{
     background: linear-gradient(to right,rgba(37, 99, 235),rgba(109, 40, 217));
-    transition-duration: 3s;
+}
+
+.blog-card{
+    background-color: #17171C;
 }
