@@ -4,12 +4,17 @@
   "private": true,
   "dependencies": {
     "@craco/craco": "^7.1.0",
+    "@iconify/tools": "^4.0.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "cookie": "^0.6.0",
+    "iconify": "^1.4.0",
     "postcss": "^8.4.34",
     "react": "^18.2.0",
+    "react-cookie": "^7.0.2",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -38,6 +43,10 @@
     ]
   },
   "devDependencies": {
+    "@iconify/json": "^2.2.180",
+    "@iconify/react": "^4.1.1",
+    "@iconify/tailwind": "^0.1.4",
+    "@iconify/utils": "^2.1.22",
     "autoprefixer": "^9.8.8",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
   }

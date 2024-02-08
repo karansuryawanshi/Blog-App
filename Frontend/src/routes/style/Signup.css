@@ -1,0 +1,42 @@
+/* bg-gradient-to-tl from-purple-900 via-black to-blue-900 */
+.signup-background{
+    background-image: linear-gradient(135deg, #215DEE,#283376,#090C1E,#4a205b, #B61CFF);
+}
+
+.featured-post-left{
+    width: 50%;
+}
+
+.featured-post-right{
+    width: 50%;
+}
+
+.feature-card{
+    background-color: #17171C;
+}
+
+.main-block,.popular-tags{
+    background-color: #17171C;
+}
+
+.image{
+    border-radius: 15px;
+}
+
+.popular-tags{
+    background-color: #17171C;
+}   
+
+.see-all-tag{
+    background-color: #17171C;
+    transition-duration: 3s;
+}
+
+.main-page{
+    background-color: #100F15;
+}
+
+.see-all-tag:hover{
+    background: linear-gradient(to right,rgba(37, 99, 235),rgba(109, 40, 217));
+    transition-duration: 3s;
+}

@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { makeUnauthenticatePOSTRequest } from '../utils/helpers'
+import "./style/Signup.css"
+import { Navigate } from 'react-router-dom'
 
 const Signup = () => {
     const[email,setEmail] = useState("")
@@ -9,14 +11,22 @@ const Signup = () => {
     const[username,setUsername] = useState("")
 
     const register =()=>{
+
         const data = {email, password, firstname, lastname, username}
-        console.log(data)
+        // console.log(data)
         const response = makeUnauthenticatePOSTRequest("/auth/register",data)
         console.log(response)
+        if(response || !response.err){
+          alert("success")
+          // Navigate("/")
+        }
+        else{
+          alert("failure")
+        }
     }
   return (
     <div className='w-screen h-screen'>
-      <div className=' w-full h-full flex items-center justify-center bg-gradient-to-tl from-purple-900 via-black to-blue-900'>
+      <div className='signup-background w-full h-full flex items-center justify-center '>
         <div className='w-1/3 bg-gray-900 h-5/6 text-white flex flex-col items-center rounded-xl border-2 border-gray-600'>
           <div className='login-app-name mt-5 text-2xl font-semibold'>
             Blogo
