@@ -22,7 +22,6 @@ const PopularTags = () => {
                     See all tags 
                     <div>
                         <Icon className='mt-3 ml-3' icon="grommet-icons:link-next" width="1.2rem" height="1.2rem" />
-
                     </div>
                 </div>
             </div> 

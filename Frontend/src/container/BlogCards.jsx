@@ -3,7 +3,7 @@ import BlogSingleCard from './BlogSingleCard'
 
 const BlogCard = ({title,subtitle,category,imgUrl}) => {
   return (
-
+    <div>
       <div className='flex items-center justify-center mt-8 ml-5'>
             <div className='w-96'>
             
@@ -14,6 +14,7 @@ const BlogCard = ({title,subtitle,category,imgUrl}) => {
               imgUrl={imgUrl}/>
             </div>
         </div>
+      </div>
   )
 }
 

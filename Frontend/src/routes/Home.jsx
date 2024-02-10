@@ -112,17 +112,24 @@ const Home = () => {
             <div>
                 <PopularTags/>
             </div>
-            <div className='flex items-center justify-center'>
-                <div className='flex flex-wrap w-11/12'>     
-                {BlogData.map((item)=>{
-                return(
-                <BlogCard 
-                  title={item.title}
-                  subtitle={item.subtitle}
-                  category={item.category}
-                  imgUrl={item.imgUrl}/>
-                    )
-                })}
+            <div>
+                <div className='flex items-center justify-center'>
+                    <div className='flex flex-wrap w-11/12'>     
+                    {BlogData.map((item)=>{
+                        return(
+                            <BlogCard 
+                            title={item.title}
+                            subtitle={item.subtitle}
+                            category={item.category}
+                            imgUrl={item.imgUrl}/>
+                            )
+                        })}
+                    </div>
+                </div>
+                <div className='flex items-center justify-center text-white my-14'>
+                    <div className='py-2 px-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-700 cursor-pointer'>
+                    Load More
+                    </div>
                 </div>
             </div>
         </div>
