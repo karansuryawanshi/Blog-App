@@ -22,6 +22,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-/src/App.css
-/src/index.css
-/src/routes/style/Signup.css
+./src/App.css
+./src/index.css
+./src/routes/style/Signup.css
