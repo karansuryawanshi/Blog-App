@@ -24,4 +24,4 @@ yarn-error.log*
 
 ./src/App.css
 ./src/index.css
-./src/routes/style/Signup.css
+./src/routes/style
