@@ -5,7 +5,7 @@ import Democard from './Democard';
 
 const FeaturedPost = () => {
   return (
-    <div className='h-full w-full'>
+    <div className='feature-post h-full w-full'>
         <div className='flex items-center justify-center'>
             <div className='text-white font-bold text-2xl mt-10'>Featured posts</div>
         </div>

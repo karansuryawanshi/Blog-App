@@ -1,11 +1,12 @@
 import React from 'react'
 import Tags from './Tags'
 import { Icon } from '@iconify-icon/react'
+import "../routes/style/Signup.css"
 
 const PopularTags = () => {
   return (
-    <div>
-        <div className='text-white font-bold text-2xl mt-10 flex items-center justify-center'>
+    <div className='feature-post'>
+        <div className='text-white font-bold text-2xl pt-10 flex items-center justify-center'>
         Popular Tags
         </div>
         <div className='flex items-center justify-center'>

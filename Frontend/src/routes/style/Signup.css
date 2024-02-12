@@ -3,6 +3,11 @@
     background-image: linear-gradient(135deg, #215DEE,#283376,#090C1E,#4a205b, #B61CFF);
 }
 
+.feature-post{
+    background-color: #100F15;   
+    
+}
+
 .featured-post-left{
     width: 50%;
 }
@@ -33,8 +38,8 @@
 }
 
 .main-page{
-    background-color: #100F15;
-
+    /* background-color: #100F15;    */
+    background-image: url('../../assesets/background.png');
 }
 
 .see-all-tag:hover{
