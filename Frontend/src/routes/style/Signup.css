@@ -3,8 +3,9 @@
     background-image: linear-gradient(135deg, #215DEE,#283376,#090C1E,#4a205b, #B61CFF);
 }
 
-.feature-post{
+.containers{
     background-color: #100F15;   
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0),#100F15, #100F15);
     
 }
 
@@ -40,6 +41,7 @@
 .main-page{
     /* background-color: #100F15;    */
     background-image: url('../../assesets/background.png');
+    position: fixed;
 }
 
 .see-all-tag:hover{
@@ -48,4 +50,8 @@
 
 .blog-card{
     background-color: #17171C;
+}
+
+.background{
+    background-color: #100F15;
 }

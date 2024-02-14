@@ -27,7 +27,7 @@ const Democard = ({imgUrl,category,title}) => {
                             <img className='image w-44 h-36 p-5' src={imgUrl} alt="" />
                             <div className='flex mt-4 flex-col'>
                                 <div className='w-min'>
-                                    <div className={`flex text-white border-2 px-2 rounded-full ${borderColorClass}`}>{category}</div>
+                                    <div className={`flex text-white border-2 px-2 rounded-full bg-opacity-20 ${borderColorClass}`}>{category}</div>
                                 </div>
                                 <div className='text-white font-semibold text-xl mt-3'>
                                     {title}

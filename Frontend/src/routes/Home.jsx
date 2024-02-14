@@ -5,6 +5,8 @@ import BlogCard from '../container/BlogCards';
 import { Icon } from '@iconify-icon/react';
 import NewsLetter from '../container/NewsLetter';
 import Footer from '../container/Footer';
+import "./style/Signup.css"
+import background from "../assesets/background.png"
 
 const Home = () => {
 
@@ -53,7 +55,7 @@ const Home = () => {
             <div className=' flex'>
                 <div className='navbar flex p-8 ml-8 items-center space-x-5 w-2/4'>
                     <div className='Logo text-white font-semibold text-3xl'>
-                        Proto
+                        Blogo
                     </div>
                     <div className='text-white flex text-base'>
                         <ul className='flex space-x-5'>
@@ -82,7 +84,7 @@ const Home = () => {
                 </div>
             </div>
             <div className='text-white flex flex-col items-center justify-center font-bold text-6xl mt-16'>
-                Hello 👋, we are Proto, exploring 
+                Hello 👋, we are Blogo, exploring 
                 <div className='flex space-x-2 mt-2'>
                     <div className='flex' style={{ background: "linear-gradient(to right, #215DEE, #B61CFF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
                         <p className='py-3'>Fashion</p> 
@@ -107,37 +109,41 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div>
-                <FeaturedPost/>
-            </div>
-            <div>
-                <PopularTags/>
-            </div>
-            <div>
-                <div className='feature-post flex items-center justify-center'>
-                    <div className='flex flex-wrap w-11/12'>     
-                    {BlogData.map((item)=>{
-                        return(
-                            <BlogCard 
-                            title={item.title}
-                            subtitle={item.subtitle}
-                            category={item.category}
-                            imgUrl={item.imgUrl}/>
-                            )
-                        })}
+        
+            <div className='containers'>
+
+                <div>
+                    <FeaturedPost/>
+                </div>
+                <div>
+                    <PopularTags/>
+                </div>
+                <div>
+                    <div className='feature-post flex items-center justify-center'>
+                        <div className='flex flex-wrap w-11/12'>     
+                        {BlogData.map((item)=>{
+                            return(
+                                <BlogCard 
+                                title={item.title}
+                                subtitle={item.subtitle}
+                                category={item.category}
+                                imgUrl={item.imgUrl}/>
+                                )
+                            })}
+                        </div>
+                    </div>
+                    <div className='feature-post flex items-center justify-center text-white py-14'>
+                        <div className='py-2 px-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-700 cursor-pointer'>
+                        Load More
+                        </div>
                     </div>
                 </div>
-                <div className='feature-post flex items-center justify-center text-white py-14'>
-                    <div className='py-2 px-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-700 cursor-pointer'>
-                    Load More
-                    </div>
+                <div>
+                    <NewsLetter></NewsLetter>
                 </div>
-            </div>
-            <div>
-                <NewsLetter></NewsLetter>
-            </div>
-            <div>
-                <Footer></Footer>
+                <div>
+                    <Footer></Footer>
+                </div>
             </div>
         </div>
     </div>

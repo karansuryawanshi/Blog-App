@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { makeUnauthenticatePOSTRequest } from '../utils/helpers'
 import "./style/Signup.css"
 import { Navigate } from 'react-router-dom'
+import {useCookies} from "react-cookie" 
 
 const Signup = () => {
     const[email,setEmail] = useState("")
@@ -9,14 +10,20 @@ const Signup = () => {
     const[firstname,setFirstname] = useState("")
     const[lastname,setLastname] = useState("")
     const[username,setUsername] = useState("")
+    const [cookie, setCookie] = useCookies(["token"])
 
-    const register =()=>{
+    const register = async ()=>{
 
         const data = {email, password, firstname, lastname, username}
         // console.log(data)
-        const response = makeUnauthenticatePOSTRequest("/auth/register",data)
+        const response =await makeUnauthenticatePOSTRequest("/auth/register",data)
         console.log(response)
         if(response || !response.err){
+          const token = response.token;
+          console.log(token)
+          const date = new Date();
+          date.setDate(date.getDate() + 30)
+          setCookie("token",token,{path:"/",expires:date})
           alert("success")
           // Navigate("/")
         }

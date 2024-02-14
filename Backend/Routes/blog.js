@@ -50,7 +50,7 @@ router.get(
   async (req, res) => {
     const username = req.params.blogId;
     // console.log(blogId);
-    const blog = await Blog.findOne({ _id: blogId }).populate("creater");
+    const blog = await Blog.findOne({ _id: username }).populate("creater");
 
     if (!blog) {
       return res.status(301).json({ err: "Invalid ID" });

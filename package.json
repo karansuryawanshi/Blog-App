@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "@iconify-icon/react": "^2.0.0"
+  },
+  "dependencies": {
+    "react-markdown": "^9.0.1"
   }
 }
