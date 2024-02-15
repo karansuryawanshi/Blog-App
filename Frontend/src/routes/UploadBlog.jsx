@@ -9,6 +9,7 @@ import 'react-quill/dist/quill.snow.css';
 import UploadImage from '../container/UploadImage';
 import UploadVideo from '../container/UploadVideo';
 import { makeAuthenticatedPOSTRequest} from '../utils/helpers';
+import LoggedInComponent from './LoggedInComponent';
 
 const UploadBlog = () => {
     const [title, setTitle] = useState("")
@@ -24,45 +25,15 @@ const UploadBlog = () => {
         console.log(data)
         const response = await makeAuthenticatedPOSTRequest ("/blog/create",data)
         console.log(response)
+        alert("Blog uploaded Successfully...")
     }
   return (
     <div className='w-screen h-screen'>
         <div className='background w-full h-full overflow-x-hidden'>
-            <div className=' flex'>
-                <div className='navbar flex p-8 ml-8 items-center space-x-5 w-2/4'>
-                    <div className='Logo text-white font-semibold text-3xl'>
-                        Blogo
-                    </div>
-                    <div className='text-white flex text-base'>
-                        <ul className='flex space-x-5'>
-                            <li className='cursor-pointer'>Style Guide</li>
-                            <li className='cursor-pointer'>Tags</li>
-                            <li className='cursor-pointer'>Authors</li>
-                            <li className='cursor-pointer'>Post</li>
-                            <li className='cursor-pointer'>Membership</li>
-                            <li className='cursor-pointer'>Contact</li>
-                        </ul>
-                    </div>
-                </div>
-                <div className='flex items-center justify-center w-2/4 text-white space-x-7'>
-                    <div>
-                        <Icon icon="tabler:search" width="1.6rem" height="1.6rem" />
-                    </div>
-                    <div>
-                        <Icon icon="icon-park-outline:dark-mode" width="1.6rem" height="1.6rem" />
-                    </div> 
-                    <div className='text-white text-base'>
-                        SignIn
-                    </div>
-                    <div className='bg-white text-base bg-gradient-to-r from-blue-600 to-purple-700 p-3 rounded-full '>
-                        Become member
-                    </div>
-                </div>
-            </div>
-        
+            <LoggedInComponent>
             <div className='containers'>
                 <div className=''>
-                    <div className='flex-col items-center justify-center mb-10'>
+                    <div className='flex-col items-center justify-center pb-4'>
                         <div className='text-white w-11/12 p-4'>
                             <div className='font-semibold text-3xl border-b p-4'>
                                 Upload Blog
@@ -106,8 +77,8 @@ const UploadBlog = () => {
                                 <ReactQuill theme="snow" className='text-white w-full h-72' value={description} onChange={setDescription}/>
                             </div>
                         </div>
-                        <div className='m-16 flex items-center justify-center'>
-                            <div className='w-min bg-gradient-to-r from-blue-600 to-purple-700 text-white px-10 py-3 font-semibold rounded-full' 
+                        <div className='p-14 flex items-center justify-center'>
+                            <div className='w-min bg-gradient-to-r from-blue-600 to-purple-700 text-white px-10 py-3 font-semibold rounded-full cursor-pointer' 
                             onClick={uploadSong}
                             >
                                 Submit
@@ -115,13 +86,8 @@ const UploadBlog = () => {
                         </div>
                     </div>
                 </div>
-                <div>
-                    <NewsLetter></NewsLetter>
-                </div>
-                <div>
-                    <Footer></Footer>
-                </div>
             </div>
+                </LoggedInComponent>
         </div>
     </div>
   )

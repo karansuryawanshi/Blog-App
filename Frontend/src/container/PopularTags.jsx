@@ -2,8 +2,10 @@ import React from 'react'
 import Tags from './Tags'
 import { Icon } from '@iconify-icon/react'
 import "../routes/style/Signup.css"
+import { useNavigate } from 'react-router-dom'
 
 const PopularTags = () => {
+    const navigate = useNavigate();
   return (
     <div className='feature-post'>
         <div className='text-white font-bold text-2xl pt-10 flex items-center justify-center'>
@@ -18,7 +20,7 @@ const PopularTags = () => {
                 <Tags category={"Travel"} imgUrl={"https://images.unsplash.com/photo-1526857240824-92be52581d9b?crop=entropy&cs=tinysrgb&fit=max&fm=webp&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fGZhc2hpb24lMjB0cmF2ZWx8ZW58MHx8fHwxNjkyNDQ2MjIzfDA&ixlib=rb-4.0.3&q=80&w=2000"}/>
                 <Tags category={"Technology"} imgUrl={"https://images.unsplash.com/photo-1522682178063-73ad4736e440?crop=entropy&cs=tinysrgb&fit=max&fm=webp&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDJ8fGZhc2hpb24lMjB0ZWNobm9sb2d5JTIwY2FtZXJhfGVufDB8fHx8MTY5MjQ0NjMwOXww&ixlib=rb-4.0.3&q=80&w=2000"}/>
 
-            <div className='see-all-tag ml-10 cursor-pointer p-4 w-64 rounded-full flex border-2 border-gray-500 mb-5 hover:bg-gradient-to-r from-blue-600 to-purple-700'>
+            <div className='see-all-tag ml-10 cursor-pointer p-4 w-64 rounded-full flex border-2 border-gray-500 mb-5 hover:bg-gradient-to-r from-blue-600 to-purple-700' onClick={()=>{navigate("/tags")}}>
                 <div className='text-white flex items-center ml-2 font-semibold text-2xl'>
                     See all tags 
                     <div>

@@ -9,6 +9,7 @@ import "./style/Signup.css"
 import background from "../assesets/background.png"
 import { makeAuthenticatedGETRequest } from '../utils/helpers';
 import { useEffect } from 'react';
+import LoggedInComponent from './LoggedInComponent';
 
 const Posts = () => {
 
@@ -29,23 +30,8 @@ const Posts = () => {
   return (
     <div className='w-screen h-screen'>
         <div className='main-page w-full h-full overflow-x-hidden'>
-            <div className=' flex'>
-                <div className='navbar flex p-8 ml-8 items-center space-x-5 w-2/4'>
-                    <div className='Logo text-white font-semibold text-3xl'>
-                        Blogo
-                    </div>
-                    <div className='text-white flex text-base'>
-                        <ul className='flex space-x-5'>
-                            <li className='cursor-pointer'>Style Guide</li>
-                            <li className='cursor-pointer'>Tags</li>
-                            <li className='cursor-pointer'>Authors</li>
-                            <li className='cursor-pointer'>Post</li>
-                            <li className='cursor-pointer'>Membership</li>
-                            <li className='cursor-pointer'>Contact</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+
+            <LoggedInComponent>
         
             <div className='containers'>
                 <div>
@@ -74,13 +60,8 @@ const Posts = () => {
                         </div>
                     </div>
                 </div>
-                <div>
-                    <NewsLetter></NewsLetter>
-                </div>
-                <div>
-                    <Footer></Footer>
-                </div>
             </div>
+            </LoggedInComponent>
         </div>
     </div>
   )

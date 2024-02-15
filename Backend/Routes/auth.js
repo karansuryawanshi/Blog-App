@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require("../Models/Auth");
 const app = express();
 const { getToken } = require("../utils/helpers");
+const passport = require("passport");
 
 router.post("/register", async (req, res) => {
   const { firstname, lastname, email, password, username } = req.body;
@@ -44,5 +45,19 @@ router.post("/login", async (req, res) => {
   const userToReturn = { ...user.toJSON(), token };
   return res.status(200).json(userToReturn);
 });
+
+router.get(
+  "/profile",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    const userId = req.user.id;
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+    return res.status(200).json(user);
+  }
+);
 
 module.exports = router;

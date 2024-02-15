@@ -4,6 +4,7 @@ import NewsLetter from '../container/NewsLetter';
 import Footer from '../container/Footer';
 import "./style/Signup.css"
 import TagCard from '../container/TagCard';
+import LoggedInComponent from './LoggedInComponent';
 
 const Tags = () => {
     const Tagdata = [
@@ -40,38 +41,8 @@ const Tags = () => {
   return (
     <div className='w-screen h-screen'>
         <div className='main-page w-full h-full overflow-x-hidden'>
-            <div className=' flex'>
-                <div className='navbar flex p-8 ml-8 items-center space-x-5 w-2/4'>
-                    <div className='Logo text-white font-semibold text-3xl'>
-                        Blogo
-                    </div>
-                    <div className='text-white flex text-base'>
-                        <ul className='flex space-x-5'>
-                            <li className='cursor-pointer'>Style Guide</li>
-                            <li className='cursor-pointer'>Tags</li>
-                            <li className='cursor-pointer'>Authors</li>
-                            <li className='cursor-pointer'>Post</li>
-                            <li className='cursor-pointer'>Membership</li>
-                            <li className='cursor-pointer'>Contact</li>
-                        </ul>
-                    </div>
-                </div>
-                <div className='flex items-center justify-center w-2/4 text-white space-x-7'>
-                    <div>
-                        <Icon icon="tabler:search" width="1.6rem" height="1.6rem" />
-                    </div>
-                    <div>
-                        <Icon icon="icon-park-outline:dark-mode" width="1.6rem" height="1.6rem" />
-                    </div> 
-                    <div className='text-white text-base'>
-                        SignIn
-                    </div>
-                    <div className='bg-white text-base bg-gradient-to-r from-blue-600 to-purple-700 p-3 rounded-full '>
-                        Become member
-                    </div>
-                </div>
-            </div>
-        <div className='mb-8'>
+        <LoggedInComponent>
+        <div className='containers pb-8'>
             <div className='text-white flex item-center justify-center'>
                 <div className='text-4xl font-semibold'>
                     Tags
@@ -91,15 +62,7 @@ const Tags = () => {
                 </div>
             </div>
         </div>
-        
-            <div className='containers'>
-                <div>
-                    <NewsLetter></NewsLetter>
-                </div>
-                <div>
-                    <Footer></Footer>
-                </div>
-            </div>
+        </LoggedInComponent>
         </div>
     </div>
   )

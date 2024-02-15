@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 const BlogSingleCard = ({title,subtitle,imgUrl,category,blogId}) => {
 
+    console.log(blogId)
     const navigate = useNavigate();
     
   return (
@@ -20,11 +21,8 @@ const BlogSingleCard = ({title,subtitle,imgUrl,category,blogId}) => {
             <SingleTag category={category}/>
         </div>
         <div className=' flex items-center justify-center mt-2'>
-            <div className='text-white font-semibold text-2xl ml-5 w-11/12' onClick={()=>{
-        navigate("/playlist/"+blogId)
-      }}>
+            <div className='text-white font-semibold text-2xl ml-5 w-11/12 cursor-pointer' onClick={()=>{navigate("/blog/"+blogId)}}>
                 {title}
-                {/* Autumn is a second spring when every leaf is a flower */}
             </div>
         </div>
         <div className='flex items-center justify-center mt-4'>

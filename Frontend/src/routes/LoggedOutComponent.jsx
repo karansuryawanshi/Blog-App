@@ -1,4 +1,4 @@
-import React from 'react'
+// import React, { Children } from 'react'
 import FeaturedPost from '../container/FeaturedPost';
 import PopularTags from '../container/PopularTags';
 import BlogCard from '../container/BlogCards';
@@ -7,9 +7,8 @@ import NewsLetter from '../container/NewsLetter';
 import Footer from '../container/Footer';
 import "./style/Signup.css"
 import background from "../assesets/background.png"
-import LoggedInComponent from './LoggedInComponent';
 
-const Home = () => {
+const LoggedOutComponent = () => {
 
     const BlogData = [
         {
@@ -51,10 +50,41 @@ const Home = () => {
       ]
 
   return (
-      <div className='w-screen h-screen'>
+    <div className='w-screen h-screen'>
         <div className='main-page w-full h-full overflow-x-hidden'>
-        <LoggedInComponent>
-        <div className='text-white flex flex-col items-center justify-center font-bold text-6xl mt-16'>
+            <div className=' flex'>
+                <div className='navbar flex p-8 ml-8 items-center space-x-5 w-2/4'>
+                    <div className='Logo text-white font-semibold text-3xl'>
+                        Blogo
+                    </div>
+                    <div className='text-white flex text-base'>
+                        <ul className='flex space-x-5'>
+                            <li className='cursor-pointer'>Style Guide</li>
+                            <li className='cursor-pointer'>Tags</li>
+                            <li className='cursor-pointer'>Authors</li>
+                            <li className='cursor-pointer'>Post</li>
+                            <li className='cursor-pointer'>Membership</li>
+                            <li className='cursor-pointer'>Contact</li>
+                        </ul>
+                    </div>
+                </div>
+                <div className='flex items-center justify-center w-2/4 text-white space-x-7'>
+                    <div>
+                        <Icon icon="tabler:search" width="1.6rem" height="1.6rem" />
+                    </div>
+                    <div>
+                        <Icon icon="icon-park-outline:dark-mode" width="1.6rem" height="1.6rem" />
+                    </div> 
+                    <div className='text-white text-base'>
+                        SignIn
+                    </div>
+                    <div className='bg-white text-base bg-gradient-to-r from-blue-600 to-purple-700 p-3 rounded-full '>
+                        Become member
+                    </div>
+                </div>
+            </div>
+            <div>
+            <div className='text-white flex flex-col items-center justify-center font-bold text-6xl mt-16'>
                 Hello 👋, we are Blogo, exploring 
                 <div className='flex space-x-2 mt-2'>
                     <div className='flex' style={{ background: "linear-gradient(to right, #215DEE, #B61CFF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
@@ -110,10 +140,19 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-        </LoggedInComponent>
+            </div>
+        
+            <div className='background'>
+                <div>
+                    <NewsLetter></NewsLetter>
+                </div>
+                <div>
+                    <Footer></Footer>
+                </div>
+            </div>
         </div>
     </div>
   )
 }
 
-export default Home
+export default LoggedOutComponent
