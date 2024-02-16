@@ -22,9 +22,11 @@ const LoggedInComponent = ({children}) => {
     //         const response = await makeAuthenticatedGETRequest(
     //             "/auth/profile"
     //         );
-    //         // setPost(response.data)
-    //         setFirstname(response.firstname)
-    //         setLastname(response.lastname)
+    //         console.log(response.data)
+    //         if(response){
+    //             setFirstname(response.firstname)
+    //             setLastname(response.lastname)
+    //         }
     //       };
     //     getData();
     // },[])
@@ -34,13 +36,13 @@ const LoggedInComponent = ({children}) => {
         <div className='main-page w-full h-full overflow-x-hidden'>
             <div className=' flex'>
                 <div className='navbar flex p-8 ml-8 items-center space-x-5 w-2/4'>
-                    <div className='Logo text-white font-semibold text-3xl'>
+                    <div className='Logo text-white font-semibold text-3xl'onClick={()=>{navigate("/home")}}>
                         Blogo
                     </div>
                     <div className='text-white flex text-base'>
                         <ul className='flex space-x-5'>
                             <li className='cursor-pointer'>Style Guide</li>
-                            <li className='cursor-pointer'>Tags</li>
+                            <li className='cursor-pointer'onClick={()=>{navigate("/tags")}}>Tags</li>
                             <li className='cursor-pointer'>Authors</li>
                             <li className='cursor-pointer' onClick={()=>{navigate("/post")}}>Post</li>
                             <li className='cursor-pointer'>Membership</li>
@@ -58,8 +60,8 @@ const LoggedInComponent = ({children}) => {
                     <div className='text-white text-base cursor-pointer' onClick={()=>{navigate("/uploadblog")}}>
                         Upload Blog
                     </div>
-                    <div className='bg-white text-xl text-base bg-gradient-to-r from-blue-600 to-purple-700 px-2 py-1 rounded-full '>
-                        {/* {firstname[0]}{lastname[0]} */} KM
+                    <div className='bg-white text-xl text-base bg-gradient-to-r from-blue-600 to-purple-700 px-2 py-1 rounded-full cursor-pointer' onClick={()=>{navigate("/profile")}}>
+                        {/* {firstname[0]}{lastname[0]}  */} KM
                     </div>
                 </div>
             </div>
@@ -67,7 +69,7 @@ const LoggedInComponent = ({children}) => {
                 {children}
             </div>
         
-            <div className='background'>
+            <div className='background pt-12'>
                 <div>
                     <NewsLetter></NewsLetter>
                 </div>

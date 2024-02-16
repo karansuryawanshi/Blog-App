@@ -8,8 +8,10 @@ import Footer from '../container/Footer';
 import "./style/Signup.css"
 import background from "../assesets/background.png"
 import LoggedInComponent from './LoggedInComponent';
+import {  useNavigate } from 'react-router-dom';
 
 const Home = () => {
+    const navigate = useNavigate()
 
     const BlogData = [
         {
@@ -75,8 +77,8 @@ const Home = () => {
                     </div>
                 </div>
                 <div className='flex items-center justify-center mt-14'>
-                    <div className='bg-white text-lg w-1/6 px-3 py-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-700 flex items-center justify-center font-bold'>
-                        Join now - it's free!
+                    <div className='bg-white text-lg px-5 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-700 flex items-center justify-center font-bold cursor-pointer'onClick={()=>{navigate("/post")}}>
+                        Explore!
                     </div>
                 </div>
             </div>
@@ -104,7 +106,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div className='feature-post flex items-center justify-center text-white py-14'>
-                        <div className='py-2 px-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-700 cursor-pointer'>
+                        <div className='py-2 px-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-700 cursor-pointer'onClick={()=>{navigate("/post")}}>
                         Load More
                         </div>
                     </div>

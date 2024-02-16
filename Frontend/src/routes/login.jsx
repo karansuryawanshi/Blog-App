@@ -2,12 +2,15 @@ import React, { useState } from 'react'
 import "./style/Signup.css";
 import {useCookies} from 'react-cookie' 
 import { makeUnauthenticatePOSTRequest } from '../utils/helpers';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [cookie, setCookie] = useCookies(["token"])
+
+  const navigate = useNavigate()
 
   const signin = async () =>{
     const data = {email, password}
@@ -63,7 +66,7 @@ const Login = () => {
                 Login
               </div>
               <div className='mt-4'>
-              Don't have an account yet? <span className='underline cursor-pointer'>Sign up</span> 
+              Don't have an account yet? <span className='underline cursor-pointer' onClick={()=>{navigate("/signup")}}>Sign up</span> 
               </div>
             </div>
           </div>

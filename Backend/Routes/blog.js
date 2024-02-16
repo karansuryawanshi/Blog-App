@@ -66,9 +66,9 @@ router.get(
     const createrId = req.user._id;
     console.log(createrId);
 
-    const blogs = await Blog.find({ creater: createrId });
+    const blogs = await Blog.find({ creater: createrId }).populate("creater");
     console.log(blogs);
-    return res.status(200).json({ data: blogs });
+    return res.status(200).json({ blogs });
   }
 );
 
@@ -110,9 +110,5 @@ router.get("/get/blogs/category/:category", async (req, res) => {
   }
 
   res.status(200).json({ data: blogs });
-  // } catch (error) {
-  //   console.error("Error retrieving blogs by category:");
-  //   res.status(500).json({ error: "Internal server error" });
-  // }
 });
 module.exports = router;

@@ -25,7 +25,7 @@ const Tags = () => {
             tag:"Health"
         },
         {
-            imgUrl : "https://images.unsplash.com/photo-1526857240824-92be52581d9b?crop=entropy&cs=tinysrgb&fit=max&fm=webp&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDF8fGZhc2hpb24lMjB0cmF2ZWx8ZW58MHx8fHwxNjkyNDQ2MjIzfDA&ixlib=rb-4.0.3&q=80&w=2000",
+            imgUrl : "https://images.unsplash.com/photo-1505778276668-26b3ff7af103?q=80&w=2061&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
             tag:"Travel"
         },
         {
@@ -52,12 +52,11 @@ const Tags = () => {
             <div className='mt-8'>
                 <div className='flex flex-wrap ml-14'>
                         {Tagdata.map((item)=>{
-                            return(
-                                <TagCard
-                                    imgUrl={item.imgUrl}
-                                    tag={item.tag}/>
-                            )
-
+                        return(
+                            <TagCard
+                                imgUrl={item.imgUrl}
+                                tag={item.tag}/>
+                                )
                             })}
                 </div>
             </div>

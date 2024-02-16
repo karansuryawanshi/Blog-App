@@ -10,6 +10,7 @@ import UploadImage from '../container/UploadImage';
 import UploadVideo from '../container/UploadVideo';
 import { makeAuthenticatedPOSTRequest} from '../utils/helpers';
 import LoggedInComponent from './LoggedInComponent';
+import {  useNavigate } from 'react-router-dom';
 
 const UploadBlog = () => {
     const [title, setTitle] = useState("")
@@ -19,13 +20,16 @@ const UploadBlog = () => {
     const [video, setVideo] = useState ("")
     const [description, setDescription] = useState ("")
 
-    const uploadSong = async ()=> {
+    const navigate = useNavigate()
 
+    const uploadSong = async ()=> {
+        
         const data = {title, subtitle, category, image, video, description}
         console.log(data)
         const response = await makeAuthenticatedPOSTRequest ("/blog/create",data)
         console.log(response)
         alert("Blog uploaded Successfully...")
+        navigate("/profile")
     }
   return (
     <div className='w-screen h-screen'>

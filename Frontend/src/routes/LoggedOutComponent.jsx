@@ -7,8 +7,10 @@ import NewsLetter from '../container/NewsLetter';
 import Footer from '../container/Footer';
 import "./style/Signup.css"
 import background from "../assesets/background.png"
+import { useNavigate } from 'react-router-dom';
 
 const LoggedOutComponent = () => {
+    const navigate = useNavigate()
 
     const BlogData = [
         {
@@ -75,7 +77,7 @@ const LoggedOutComponent = () => {
                     <div>
                         <Icon icon="icon-park-outline:dark-mode" width="1.6rem" height="1.6rem" />
                     </div> 
-                    <div className='text-white text-base'>
+                    <div className='text-white text-base cursor-pointer'onClick={()=>{navigate("/signup")}}>
                         SignIn
                     </div>
                     <div className='bg-white text-base bg-gradient-to-r from-blue-600 to-purple-700 p-3 rounded-full '>

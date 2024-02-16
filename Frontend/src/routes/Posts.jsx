@@ -22,7 +22,7 @@ const Posts = () => {
                 "/blog/get/allblogs/home"
             );
             setPost(response.data)
-            console.log(response.data.title)
+            console.log(response)
           };
         getData();
     },[])
@@ -54,11 +54,11 @@ const Posts = () => {
                             })}
                         </div>
                     </div>
-                    <div className='feature-post flex items-center justify-center text-white py-14'>
+                    {/* <div className='feature-post flex items-center justify-center text-white py-14'>
                         <div className='py-2 px-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-700 cursor-pointer'>
                         Load More
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             </LoggedInComponent>

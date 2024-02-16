@@ -5,12 +5,11 @@ import "../routes/style/Signup.css"
 import { useNavigate } from 'react-router-dom'
 
 const BlogSingleCard = ({title,subtitle,imgUrl,category,blogId}) => {
-
-    console.log(blogId)
+    
     const navigate = useNavigate();
     
   return (
-    <div className='blog-card border-2 border-gray-500 rounded-lg'>
+    <div className='blog-card border-2 border-gray-500 rounded-lg w-96'>
         <div className='p-4 flex items-center justify-center'>
             <img className='w-80 h-52 rounded-lg' 
                 src={imgUrl} 

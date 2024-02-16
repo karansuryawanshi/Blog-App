@@ -11,6 +11,7 @@ import { useCookies } from "react-cookie";
 import "./output.css";
 import LoggedOutComponent from "./routes/LoggedOutComponent.jsx";
 import Category from "./routes/Catgory.jsx";
+import Profile from "./routes/Profile.jsx";
 
 const App = () => {
   const [cookies, setCookies] = useCookies(["token"]);
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/post" element={<Posts></Posts>}></Route>
           <Route path="/blog/:blogId" element={<SingleBlog />}></Route>
           <Route path="/category/:category" element={<Category />}></Route>
+          <Route path="/profile" element={<Profile />}></Route>
           <Route path="/*" element={<Navigate to="/home" />}></Route>
         </Routes>
       ) : (
@@ -36,7 +38,7 @@ const App = () => {
             path="/home"
             element={<LoggedOutComponent></LoggedOutComponent>}
           ></Route>
-          <Route path="/*" element={<Navigate to="/home" />}></Route>
+          <Route path="/*" element={<Navigate to="/signup" />}></Route>
         </Routes>
       )}
     </BrowserRouter>

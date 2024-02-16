@@ -18,6 +18,8 @@ const SingleBlog = () => {
     const {blogId} = useParams();
     console.log(blogId)
     const [data, setData] = useState([""])
+    const[firstname, setFirstname] = useState("")
+    const[lastname, setLastname] = useState("")
     
     useEffect(()=>{
         const getData = async ()=>{
@@ -25,6 +27,10 @@ const SingleBlog = () => {
             // setPlaylistDetails(response)
             setData(response)
             console.log(response)
+            if (response.creater) {
+                setFirstname(response.creater.firstname);
+                setLastname(response.creater.lastname);
+            }
         };
 
         getData();
@@ -41,7 +47,7 @@ const SingleBlog = () => {
                             <div className='w-1/2 p-3'>
                                 <div className='m-4'>
                                     <SingleTag 
-                                        category={"Travel"}/>
+                                        category={data.category}/>
                                 </div>
                                 <div className=' text-white'>
                                     <div className='font-bold text-5xl'>
@@ -52,11 +58,12 @@ const SingleBlog = () => {
                                     </div>
                                     <div className='flex space-x-8 text-gray-300'>
                                     <div className='flex font-bold items-center text-lg'>
-                                        Karan Suryawanshi
+                                        {firstname} {lastname}
                                         </div>
                                         <div className='flex items-center text-lg'>
                                             <Icon icon="clarity:date-line" width="1.5rem" height="1.5rem" className='mr-2 my-2' />
                                                 Feb 22, 2002
+                                                {/* {data.date} */}
                                         </div>
                                         <div className='flex items-center text-lg'>
                                             <Icon icon="wi:time-3" width="1.5rem" height="1.5rem" />
@@ -73,7 +80,15 @@ const SingleBlog = () => {
                         </div>
                         <div className='flex items-center justify-center'>
                             <div className='w-1/2 text-xl text-gray-300 mt-8'>
-                                <ReactMarkdown>{data.description}</ReactMarkdown>
+                                <div>
+                                    <ReactMarkdown ctMarkdown>{data.description}</ReactMarkdown>
+                                </div>
+                                <div className='font-semibold pt-10 text-xl'>
+                                    Share this article:
+                                    <div className='pt-4'>
+                                        <Icon className='bg-gray-400 p-1 rounded-full cursor-pointer text-black' icon="ri:twitter-x-fill" width="1.5rem" height="1.5rem"/>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
