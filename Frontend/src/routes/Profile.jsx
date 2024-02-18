@@ -14,7 +14,7 @@ const Profile = () => {
             const response = await makeAuthenticatedGETRequest ("/blog/get/blog/me")
             setMyData(response.blogs)
             console.log(response.blogs)
-            if(response.blogs[0].creater){
+            if(response.blogs[0]){
                 setFirstname(response.blogs[0].creater.firstname)
                 setLastname(response.blogs[0].creater.lastname)
             }
@@ -34,7 +34,16 @@ const Profile = () => {
                         <div className='text-white bg-white px-48 py-24 rounded-2xl flex bg-opacity-50 text-gray-900 font-bold text-5xl bg-blur-3xl'>
                             <Icon className="text-gray-900 mr-2" icon="iconamoon:profile-fill" width="3.3rem" height="3.3rem" />
                                 {/* Karan Suryawanshi */}
-                                {firstname} {lastname}
+                                { {firstname} || {lastname} ?(
+                                    <div>
+                                        {firstname} {lastname}
+                                    </div>
+
+                                ):(
+                                    <div>Username</div>
+                               )
+                                }
+                                
                         </div>
                     </div>
                 </div>

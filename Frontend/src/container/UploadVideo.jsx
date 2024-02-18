@@ -2,8 +2,12 @@
 import { openUploadWidget } from "../utils/CloudinaryServices";
 import { cloudinary_upload_preset } from "../config";
 import { Icon } from "@iconify-icon/react";
+import { useState } from "react";
 
 const UploadVideo = ({setUrl}) => {
+
+  const [origionalFilename, setOrigionalFilename] = useState("")
+
 
   const uploadImageWidget = () => {
     // console.log(props);
@@ -19,6 +23,7 @@ const UploadVideo = ({setUrl}) => {
         if (!error && result.event === "success") {
             console.log(result)
         //   setName(result.info.original_filename)
+        setOrigionalFilename(result.info.original_filename)
         setUrl(result.info.secure_url)
         }else{
           if(error){
@@ -35,12 +40,23 @@ const UploadVideo = ({setUrl}) => {
     //   Select Video
     // </button>
     <div className='px-12 py-1 font-semibold rounded-full w-max bg-white text-black cursor-pointer flex items-center justify-center' onClick={uploadImageWidget}>
-        <div>
-            Upload Video
-        </div>
-        <div>
-            <Icon icon="material-symbols:upload" width="1.8rem" height="1.8rem" />
-        </div>
+        {origionalFilename ? (
+    <div>
+      {origionalFilename}
+    </div>
+   
+    ):(
+
+    <div className="flex items-center justify-center">
+      <div>
+        Upload Video
+      </div>
+      <div>
+      <Icon icon="material-symbols:upload" width="1.8rem" height="1.8rem" />
+    </div>
+    </div>
+    ) 
+  }
     </div>
   );
 };

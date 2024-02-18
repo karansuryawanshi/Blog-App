@@ -5,6 +5,8 @@ import { Icon } from "@iconify-icon/react";
 
 const UploadImage = ({setUrl}) => {
 
+  const [origionalFilename, setOrigionalFilename] = useState("")
+
   const uploadImageWidget = () => {
     let myUploadWidget = openUploadWidget(
       {
@@ -16,8 +18,8 @@ const UploadImage = ({setUrl}) => {
       },
       function (error, result) {
         if (!error && result.event === "success") {
-            console.log(result.info.secure_url)
-        //   setName(result.info.original_filename)
+            // console.log(result.info.secure_url)
+            setOrigionalFilename(result.info.original_filename)
         // setUrl(result.info.secure_url)
         setUrl(result.info.secure_url)
 
@@ -34,12 +36,23 @@ const UploadImage = ({setUrl}) => {
 
   return (
 <div className='px-12 py-1 font-semibold rounded-full w-max bg-white text-black cursor-pointer flex items-center justify-center' onClick={uploadImageWidget}>
+    {origionalFilename ? (
     <div>
+      {origionalFilename}
+    </div>
+   
+    ):(
+
+    <div className="flex items-center justify-center">
+      <div>
         Upload Image
+      </div>
+      <div>
+      <Icon icon="material-symbols:upload" width="1.8rem" height="1.8rem" />
     </div>
-    <div>
-        <Icon icon="material-symbols:upload" width="1.8rem" height="1.8rem" />
     </div>
+    ) 
+  }
 </div>
   );
 };

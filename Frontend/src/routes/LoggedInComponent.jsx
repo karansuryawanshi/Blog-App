@@ -17,19 +17,19 @@ const LoggedInComponent = ({children}) => {
 
     const navigate = useNavigate();
 
-    // useEffect (()=>{
-    //     const getData = async()=>{
-    //         const response = await makeAuthenticatedGETRequest(
-    //             "/auth/profile"
-    //         );
-    //         console.log(response.data)
-    //         if(response){
-    //             setFirstname(response.firstname)
-    //             setLastname(response.lastname)
-    //         }
-    //       };
-    //     getData();
-    // },[])
+    useEffect (()=>{
+        const getData = async()=>{
+            const response = await makeAuthenticatedGETRequest(
+                "/auth/profile"
+            );
+            console.log(response.data)
+            if(response){
+                setFirstname(response.firstname)
+                setLastname(response.lastname)
+            }
+          };
+        getData();
+    },[])
 
   return (
     <div className='w-screen h-screen'>
@@ -61,7 +61,7 @@ const LoggedInComponent = ({children}) => {
                         Upload Blog
                     </div>
                     <div className='bg-white text-xl text-base bg-gradient-to-r from-blue-600 to-purple-700 px-2 py-1 rounded-full cursor-pointer' onClick={()=>{navigate("/profile")}}>
-                        {/* {firstname[0]}{lastname[0]}  */} KM
+                        {firstname[0]}{lastname[0]}  
                     </div>
                 </div>
             </div>

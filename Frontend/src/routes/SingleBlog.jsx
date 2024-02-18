@@ -36,9 +36,28 @@ const SingleBlog = () => {
         getData();
     },[])
 
+    const getLink = () => {
+        return `${window.location.origin}/blog/${blogId}`;
+      };
+
+      const copyToClipboard = () => {
+        const link = getLink();
+        navigator.clipboard.writeText(link)
+        alert("Link Copied to clipboard...")
+      };
+
+      const encodedTitle = encodeURIComponent("blogTitle");
+      const encodedURL = encodeURIComponent(getLink());
+      
+      const twitterShareURL = `https://twitter.com/intent/tweet?url=${encodedURL}&text=${encodedTitle}`;
+
+      const shareOnTweeter=()=>{
+        window.open(twitterShareURL, '_blank');
+      }
+
   return (
     <div className='w-screen h-screen'>
-        <div className='main-page w-full h-full overflow-x-hidden'>
+        <div className='main-page w-full h-full'>
             <LoggedInComponent>
             <div className='containers'>
                 <div className='flex items-center justify-center py-8'>
@@ -81,12 +100,13 @@ const SingleBlog = () => {
                         <div className='flex items-center justify-center'>
                             <div className='w-1/2 text-xl text-gray-300 mt-8'>
                                 <div>
-                                    <ReactMarkdown ctMarkdown>{data.description}</ReactMarkdown>
+                                    <ReactMarkdown>{data.description}</ReactMarkdown>
                                 </div>
                                 <div className='font-semibold pt-10 text-xl'>
                                     Share this article:
-                                    <div className='pt-4'>
-                                        <Icon className='bg-gray-400 p-1 rounded-full cursor-pointer text-black' icon="ri:twitter-x-fill" width="1.5rem" height="1.5rem"/>
+                                    <div className='pt-4 space-x-5'>
+                                        <Icon className='bg-gray-400 p-1 rounded-full cursor-pointer text-black' icon="ri:twitter-x-fill" width="1.5rem" height="1.5rem" onClick={shareOnTweeter}/>
+                                        <Icon className='bg-gray-400 p-1 rounded-full cursor-pointer text-black' icon="ph:link-bold" width="1.5rem" height="1.5rem" onClick={copyToClipboard}/>
                                     </div>
                                 </div>
                             </div>
