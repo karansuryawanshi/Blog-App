@@ -15,7 +15,7 @@ import {  useNavigate } from 'react-router-dom';
 const UploadBlog = () => {
     const [title, setTitle] = useState("")
     const [subtitle, setSubtitle]= useState ("")
-    const [category, setCategory] =useState ("")
+    const [category, setCategory] =useState ("Inspiration")
     const [image, setImage] = useState ("")
     const [video, setVideo] = useState ("")
     const [description, setDescription] = useState ("")

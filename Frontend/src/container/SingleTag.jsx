@@ -4,7 +4,7 @@ const SingleTag = ({category,classname}) => {
   const getBorderColorClass = (category) => {
     switch (category) {
       case 'Food':
-        return 'border-green-500';
+        return 'border-indigo-500 bg-indigo-400';
       case 'Health':
         return 'border-green-600 bg-green-400';
       case 'Travel':
