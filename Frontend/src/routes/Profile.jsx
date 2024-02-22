@@ -40,7 +40,7 @@ const Profile = () => {
                                     </div>
 
                                 ):(
-                                    <div>Username</div>
+                                    <div>username</div>
                                )
                                 }
                                 
