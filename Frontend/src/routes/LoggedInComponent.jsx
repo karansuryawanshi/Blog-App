@@ -10,6 +10,9 @@ import background from "../assesets/background.png"
 import { useEffect, useState } from 'react';
 import { makeAuthenticatedGETRequest } from '../utils/helpers';
 import { useNavigate } from 'react-router-dom';
+import {ToastContainer, toast} from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css'
+import { Zoom } from 'react-toastify';
 
 const LoggedInComponent = ({children}) => {
     const [firstname, setFirstname] = useState("")
@@ -17,21 +20,23 @@ const LoggedInComponent = ({children}) => {
 
     const navigate = useNavigate();
 
-    useEffect (()=>{
-        const getData = async()=>{
-            const response = await makeAuthenticatedGETRequest(
-                "/auth/profile"
-            );
-            console.log(response.data)
-            if(response){
-                setFirstname(response.firstname)
-                setLastname(response.lastname)
-            }
-          };
-        getData();
-    },[])
+    const notify = ()=>{
+        // console.log("Hello Buddy")
+        toast("Hello Buddy",{
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Zoom,
+            })
+    }
 
   return (
+    
     <div className='w-screen h-screen'>
         <div className='main-page w-full h-full overflow-x-hidden'>
             <div className=' flex'>
@@ -49,19 +54,21 @@ const LoggedInComponent = ({children}) => {
                             <li className='cursor-pointer'>Contact</li>
                         </ul>
                     </div>
+                    <ToastContainer/>
                 </div>
                 <div className='flex items-center justify-end w-2/4 text-white space-x-7 mr-20'>
-                    <div>
+                    <div onClick={notify}>
                         <Icon icon="tabler:search" width="1.6rem" height="1.6rem" />
                     </div>
                     <div>
                         <Icon icon="icon-park-outline:dark-mode" width="1.6rem" height="1.6rem" />
                     </div> 
                     <div className='text-white text-base cursor-pointer' onClick={()=>{navigate("/uploadblog")}}>
-                        Upload Blog
+                         Upload Blog 
                     </div>
                     <div className='bg-white text-xl text-base bg-gradient-to-r from-blue-600 to-purple-700 px-2 py-1 rounded-full cursor-pointer' onClick={()=>{navigate("/profile")}}>
-                        {firstname[0]}{lastname[0]}  
+                        {/* {firstname[0]}{lastname[0]} */}   
+                        KM
                     </div>
                 </div>
             </div>

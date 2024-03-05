@@ -40,6 +40,12 @@ export const makeAuthenticatedGETRequest = async (route) => {
 };
 
 
+// const getToken = () => {
+//     const token = JSON.stringify(localStorage.getItem("token"))
+//     console.log(token)
+//     return token;
+// };
+
 const getToken = () => {
     const accessToken = document.cookie.replace(
         /(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/,

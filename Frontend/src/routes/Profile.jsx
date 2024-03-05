@@ -13,12 +13,13 @@ const Profile = () => {
         const myData = async ()=>{
             const response = await makeAuthenticatedGETRequest ("/blog/get/blog/me")
             setMyData(response.blogs)
-            console.log(response.blogs)
-            if(response.blogs[0]){
+            // console.log(response.blogs)
+            console.log(response)
+            if(response.blogs[0].creater){
                 setFirstname(response.blogs[0].creater.firstname)
                 setLastname(response.blogs[0].creater.lastname)
             }
-        } 
+        }
         myData()
     },[])
 
@@ -36,7 +37,7 @@ const Profile = () => {
                                 {/* Karan Suryawanshi */}
                                 { {firstname} || {lastname} ?(
                                     <div>
-                                        {firstname} {lastname}
+                                         {firstname} {lastname}
                                     </div>
 
                                 ):(
@@ -56,6 +57,7 @@ const Profile = () => {
                 </div>
                     <div className='flex items-center justify-center'>
                         <div className='w-11/12 flex items-center justify-center flex-wrap'>
+                            {/* Hello Buddy */}
                         {myData.map((item)=>{
                             return(
                                 <BlogCard 
@@ -63,7 +65,8 @@ const Profile = () => {
                                 subtitle={item.subtitle}
                                 category={item.category}
                                 imgUrl={item.image}
-                                blogId={item._id}/>
+                                blogId={item._id}
+                                />
                             )
                         })}
                         </div>

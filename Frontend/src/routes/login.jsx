@@ -10,7 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState("")
   const [cookie, setCookie] = useCookies(["token"])
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const signin = async () =>{
     const data = {email, password}
@@ -22,11 +22,8 @@ const Login = () => {
       date.setDate(date.getDate() + 30)
 
     setCookie("token",token,{path:"/",expires:date})
-    // console.log(response)
     console.log(data)
   }
-  
-  // console.log(data)
 
   return (
     <div className='w-screen h-screen'>

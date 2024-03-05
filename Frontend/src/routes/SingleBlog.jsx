@@ -26,6 +26,7 @@ const SingleBlog = () => {
             const response = await makeAuthenticatedGETRequest(`/blog/get/`+blogId)
             // setPlaylistDetails(response)
             setData(response)
+
             console.log(response)
             if (response.creater) {
                 setFirstname(response.creater.firstname);
@@ -99,8 +100,8 @@ const SingleBlog = () => {
                         </div>
                         <div className='flex items-center justify-center'>
                             <div className='w-1/2 text-xl text-gray-300 mt-8'>
-                                <div>
-                                    <ReactMarkdown>{data.description}</ReactMarkdown>
+                                <div dangerouslySetInnerHTML={{__html: data.description}}>
+                                    {/* {data.description} */}
                                 </div>
                                 <div className='font-semibold pt-10 text-xl'>
                                     Share this article:

@@ -11,6 +11,8 @@ import UploadVideo from '../container/UploadVideo';
 import { makeAuthenticatedPOSTRequest} from '../utils/helpers';
 import LoggedInComponent from './LoggedInComponent';
 import {  useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import { Zoom } from 'react-toastify';
 
 const UploadBlog = () => {
     const [title, setTitle] = useState("")
@@ -25,16 +27,26 @@ const UploadBlog = () => {
     const uploadSong = async ()=> {
         
         const data = {title, subtitle, category, image, video, description}
-        console.log(data)
+        // console.log(data)
         const response = await makeAuthenticatedPOSTRequest ("/blog/create",data)
-        console.log(response)
-        alert("Blog uploaded Successfully...")
-        navigate("/profile")
+        // console.log(response)
+        toast("Blog uploaded Successfully",{
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Zoom,
+            })
     }
   return (
     <div className='w-screen h-screen'>
         <div className='background w-full h-full overflow-x-hidden'>
             <LoggedInComponent>
+            <ToastContainer/>
             <div className='containers'>
                 <div className=''>
                     <div className='flex-col items-center justify-center pb-4'>
@@ -91,7 +103,7 @@ const UploadBlog = () => {
                     </div>
                 </div>
             </div>
-                </LoggedInComponent>
+            </LoggedInComponent>
         </div>
     </div>
   )
