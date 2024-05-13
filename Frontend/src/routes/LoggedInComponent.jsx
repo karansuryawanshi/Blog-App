@@ -34,6 +34,7 @@ const LoggedInComponent = ({children}) => {
             transition: Zoom,
             })
     }
+    
 
   return (
     

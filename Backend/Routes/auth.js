@@ -41,7 +41,7 @@ router.post("/login", async (req, res) => {
     res.status(403).json({ err: "invalid Password" });
   }
 
-  const token = await getToken(user._id);
+  const token = await getToken(email);
   console.log(token);
   const userToReturn = { ...user.toJSON(), token };
   return res.status(200).json(userToReturn);

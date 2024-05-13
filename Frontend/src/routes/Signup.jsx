@@ -14,6 +14,7 @@ const Signup = () => {
 
     const navigate = useNavigate()
 
+    
     const register = async ()=>{
 
         const data = {email, password, firstname, lastname, username}
@@ -27,7 +28,6 @@ const Signup = () => {
           date.setDate(date.getDate() + 30)
           setCookie("token",token,{path:"/",expires:date})
           alert("success")
-          // Navigate("/")
         }
         else{
           alert("failure")

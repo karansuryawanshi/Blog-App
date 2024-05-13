@@ -15,7 +15,6 @@ import Profile from "./routes/Profile.jsx";
 
 const App = () => {
   const [cookies, setCookies] = useCookies(["token"]);
-  // console.log(cookies.token);
 
   return (
     <BrowserRouter>

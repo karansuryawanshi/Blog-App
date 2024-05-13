@@ -10,8 +10,6 @@ const Catgory = () => {
   const {category} = useParams();
   const [categoryData, setCategoryData] = useState([""])
 
-  // const [posterUrl,setPosterUrl] = useState("")
-
   const getPosterData = (category) => {
     switch (category) {
       case 'Food':
